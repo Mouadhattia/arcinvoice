@@ -90,7 +90,7 @@ const Invoice = () => {
 
     const getTotalCount = async() => {
         try {
-          const response = await axios.get(`${process.env.REACT_APP_API}/invoices/count?searchQuery=${user?.result?._id}`);
+          const response = await axios.get(`https://arcinvoice.onrender.com/invoices/count?searchQuery=${user?.result?._id}`);
         //   console.log(response.data);
         //Get total count of invoice from the server and increment by one to serialized numbering of invoice
         setInvoiceData({...invoiceData, invoiceNumber: (Number(response.data) + 1).toString().padStart(3, '0')})

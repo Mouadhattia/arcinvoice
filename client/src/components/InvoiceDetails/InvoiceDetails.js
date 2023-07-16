@@ -115,7 +115,7 @@ const InvoiceDetails = () => {
   const createAndDownloadPdf = () => {
     setDownloadStatus("loading");
     axios
-      .post(`${process.env.REACT_APP_API}/create-pdf`, {
+      .post(`https://arcinvoice.onrender.com/create-pdf`, {
         name: invoice.client.name,
         address: invoice.client.address,
         phone: invoice.client.phone,
@@ -135,7 +135,7 @@ const InvoiceDetails = () => {
         company: company,
       })
       .then(() =>
-        axios.get(`${process.env.REACT_APP_API}/fetch-pdf`, {
+        axios.get(`https://arcinvoice.onrender.com/fetch-pdf`, {
           responseType: "blob",
         })
       )
@@ -152,7 +152,7 @@ const InvoiceDetails = () => {
     e.preventDefault();
     setSendStatus("loading");
     axios
-      .post(`${process.env.REACT_APP_API}/send-pdf`, {
+      .post(`https://arcinvoice.onrender.com/send-pdf`, {
         name: invoice.client.name,
         address: invoice.client.address,
         phone: invoice.client.phone,
